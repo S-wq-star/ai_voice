@@ -5,22 +5,31 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-success-100: #49de50;
-  --color-success-200: #42c748;
-  --color-destructive-100: #f75353;
-  --color-destructive-200: #c44141;
+  /* Status */
 
-  --color-primary-100: #dddfff;
-  --color-primary-200: #cac5fe;
+  --color-success-100: #2E8B57;
+  --color-success-200: #246D45;
 
-  --color-light-100: #d6e0ff;
-  --color-light-400: #6870a6;
-  --color-light-600: #4f557d;
-  --color-light-800: #24273a;
+  --color-destructive-100: #D9534F;
+  --color-destructive-200: #B84542;
 
-  --color-dark-100: #020408;
-  --color-dark-200: #27282f;
-  --color-dark-300: #242633;
+  /* Urgentis */
+
+  --color-primary-100: #DFF3EC;
+  --color-primary-200: #0F766E;
+
+  /* Beige */
+
+  --color-light-100: #FCFBF8;
+  --color-light-400: #A39C91;
+  --color-light-600: #6B726F;
+  --color-light-800: #24322F;
+
+  /* Dark */
+
+  --color-dark-100: #13211E;
+  --color-dark-200: #20322F;
+  --color-dark-300: #2A3A37;
 
   --font-mona-sans: "Mona Sans", sans-serif;
 
@@ -35,9 +44,9 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: #0F766E(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
+  --secondary: #F5F2EA(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -46,7 +55,7 @@
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --ring: #0F766E(0.708 0 0);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -63,13 +72,13 @@
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: oklch(0.92 0.02 85);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
+  --primary: #0F766E(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
@@ -80,7 +89,7 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
+  --ring: #0F766E(0.556 0 0);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
@@ -175,7 +184,7 @@
     @apply flex min-h-14 w-full items-center justify-center gap-1.5 rounded-md;
   }
   .btn-primary {
-    @apply w-fit !bg-primary-200 !text-dark-100 hover:!bg-primary-200/80 !rounded-full !font-bold px-5 cursor-pointer min-h-10;
+    @apply w-fit !bg-primary-200 !text-white hover:!bg-primary-200/80 !rounded-full !font-bold px-5 cursor-pointer min-h-10;
   }
   .btn-secondary {
     @apply w-fit !bg-dark-200 !text-primary-200 hover:!bg-dark-200/80 !rounded-full !font-bold px-5 cursor-pointer min-h-10;
@@ -190,7 +199,22 @@
   }
 
   .card {
-    @apply dark-gradient rounded-2xl min-h-full;
+    @apply bg-white rounded-2xl min-h-full;
+
+    h2,
+    h3,
+    p,
+    label {
+      @apply text-dark-100;
+    }
+
+    input {
+      @apply text-dark-100 border-light-400;
+    }
+
+    input::placeholder {
+      @apply text-light-600;
+    }
   }
 
   .form {
@@ -295,11 +319,11 @@
 }
 
 @utility dark-gradient {
-  @apply bg-gradient-to-b from-[#1A1C20] to-[#08090D];
+  @apply bg-gradient-to-b from-[#24443F] to-[#13211E];
 }
 
 @utility border-gradient {
-  @apply bg-gradient-to-b from-[#4B4D4F] to-[#4B4D4F33];
+  @apply bg-gradient-to-b from-[#E8E2D8] to-[#D9D1C4];
 }
 
 @utility pattern {
@@ -307,11 +331,11 @@
 }
 
 @utility blue-gradient-dark {
-  @apply bg-gradient-to-b from-[#171532] to-[#08090D];
+  @apply bg-gradient-to-b from-[#2D5B53] to-[#13211E];
 }
 
 @utility blue-gradient {
-  @apply bg-gradient-to-l from-[#FFFFFF] to-[#CAC5FE];
+  @apply bg-gradient-to-l from-[#FFFFFF] to-[#DFF3EC];
 }
 
 @utility flex-center {
