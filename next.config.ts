@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // firebase-admin pulls in jwks-rsa -> jose (ESM), which Turbopack's server
+  // bundler can't require() correctly. Keep it external so Node resolves it directly.
+  serverExternalPackages: ["firebase-admin"],
 };
 
 export default nextConfig;
